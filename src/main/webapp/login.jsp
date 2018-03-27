@@ -50,11 +50,13 @@
 <html>
 <head>
     <title>Title</title>
+    <jsp:include page="partials/styles.jsp" />
+    <jsp:include page="partials/custom.jsp" />
 </head>
 <body>
 <jsp:include page="partials/header.jsp" />
 
-<h1>Hello</h1>
+<h1>Hello, Unknown User.</h1>
 
 <h2>Please Login Below</h2>
 
@@ -63,7 +65,6 @@
     <label for="password_field">Password: <input type="password" name="password" id="password_field"></label><br>
     <button id="sub_button">Submit</button>
 </form>
-
-
+<jsp:include page="partials/scripts.jsp" />
 </body>
 </html>
