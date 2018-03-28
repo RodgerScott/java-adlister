@@ -11,11 +11,20 @@
     <div class="container">
         <h1>Welcome to the Adlister!</h1>
     </div>
+    <table style="margin-left: 20px">
+        <th>Item Name</th>
+        <th>Description</th>
+        <th>Link</th>
     <c:forEach var="ad" items="${adds}">
-            <h3>${ad.title}</h3>
-            <div>${ad.description}</div>
+        <tr>
+            <td style="padding-right: 20px">${ad.title}</td>
+            <td style="padding-right: 20px">${ad.description}</td>
+            <td><form action="/ads/show.jsp" method="POST" id=${ad.id}>
+                <button>Listing</button>
+            </form></td>
+        </tr>
     </c:forEach>
-
+    </table>
 
 </body>
 </html>
