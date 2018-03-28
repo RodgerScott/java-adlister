@@ -8,6 +8,19 @@ import java.io.IOException;
 @WebServlet(name = "ViewProfileServlet", urlPatterns = "/profile")
 public class ViewProfileServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("/profile.jsp").forward(request, response);
+        request.getRequestDispatcher("/login.jsp").forward(request, response);
+    }
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        if (request.getMethod().equalsIgnoreCase("post")) {
+            String username = request.getParameter("username");
+            String password = request.getParameter("password");
+            request.setAttribute("username", username);
+            request.setAttribute("password",password);
+            if (!username.equals("admin") && !password.equals("password")) {
+                response.sendRedirect("/profile");
+            }
+        }
+        request.getRequestDispatcher("profile.jsp").forward(request,response);
     }
 }
