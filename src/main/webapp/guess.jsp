@@ -15,6 +15,7 @@
 <form action="/guess.jsp" method="POST">
     <label for="numberg">Number: <input type="text" name="numberg" id="numberg"></label><br>
     <button>Submit</button>
+    <h1></h1>
 </form>
 </body>
 </html>

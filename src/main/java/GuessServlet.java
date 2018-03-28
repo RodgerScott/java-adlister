@@ -8,24 +8,24 @@ import java.io.IOException;
 @WebServlet(name = "GuessServlet", urlPatterns = "/guess")
 public class GuessServlet extends HttpServlet {
 
-    private int number;
+    private int number = (int) Math.ceil(Math.random() * 100);
 
     public int getNumber() {
         return number;
     }
 
-    public void setNumber(int number) {
-        this.number = number;
-    }
-
-
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.sendRedirect("/guess.jsp");
-        setNumber(10);
     }
 
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        if (request.getMethod().equals("POST")) {
+            int guess = Integer.parseInt("numberg");
+            if (getNumber() == guess) {
+
+            }
+        }
 
     }
 }
