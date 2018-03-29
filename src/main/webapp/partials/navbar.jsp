@@ -8,12 +8,11 @@
         </div>
         <ul class="nav navbar-nav navbar-right">
 
-            <c:if test="${sessionScope.user == null}">
+            <c:if test="${sessionScope.user}">
             <li><a href="/login">Login</a></li>
             </c:if>
 
-
-            <c:if test="${sessionScope.user != null}">
+            <c:if test="${!sessionScope.user}">
             <li><a href="/logout">Logout</a></li>
             </c:if>
         </ul>
