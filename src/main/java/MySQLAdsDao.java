@@ -6,8 +6,6 @@ import com.mysql.cj.jdbc.Driver;
 
 public class MySQLAdsDao implements Ads {
 
- Config config = new Config();
-
  private Connection connection;
 
 
@@ -26,6 +24,12 @@ public class MySQLAdsDao implements Ads {
   }
 
  }
+
+ @Override
+ public Long insert(Ad ad) {
+  return null;
+ }
+
 
  @Override
  public List<Ad> all() {
@@ -48,16 +52,6 @@ public class MySQLAdsDao implements Ads {
    return null;
   }
  }
-
- @Override
- public Long insert(Ad ad) {
-  return null;
- }
-
- public static void main(String[] args) {
-
- }
-
 
 }
 
