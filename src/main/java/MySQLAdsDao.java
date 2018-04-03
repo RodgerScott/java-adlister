@@ -3,10 +3,7 @@ import java.util.List;
 
 import com.mysql.cj.jdbc.Driver;
 
-public class MySQLAdsDao implements Ads {
-
- private Connection connection = null;
-
+public class MySQLAdsDao {
 
 
  public static void main(String[] args) {
@@ -15,10 +12,12 @@ public class MySQLAdsDao implements Ads {
       // Connection Statement
    DriverManager.registerDriver(new Driver());
 
-   Connection connection = DriverManager.getConnection(
-           "jdbc:mysql://localhost/adlister_db?serverTimezone=UTC&useSSL=false",
-           "root",
-           "codeup"
+   Config config = new Config();
+
+    Connection connection = DriverManager.getConnection (
+           config.getUrl(),
+           config.getPassword(),
+           config.getUser()
    );
 
   } catch (SQLException e) {
