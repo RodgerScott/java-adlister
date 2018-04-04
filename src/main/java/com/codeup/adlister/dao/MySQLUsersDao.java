@@ -2,11 +2,7 @@ package com.codeup.adlister.dao;
 import com.codeup.adlister.Config;
 import com.codeup.adlister.models.User;
 import com.mysql.cj.jdbc.Driver;
-
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class MySQLUsersDao implements Users{
     private Connection connection = null;
@@ -26,12 +22,21 @@ public class MySQLUsersDao implements Users{
 
     @Override
     public User findByUsername(String username) {
-        PreparedStatement stmt = null;
+        String query = "SELECT * FROM users WHERE username = '?' LIMIT 1";
         try {
-            String userEntry = "SELECT username FROM users WHERE username LIKE '%?%'";
-            stmt = connection.prepareStatement(userEntry);
-            stmt.setString(1, searchTerm);
-
+            PreparedStatement stmt = connection.prepareStatement(query);
+            stmt.executeQuery();
+            stmt.setString(1, username);
+            ResultSet rs = stmt.getResultSet();
+            if (! rs.next()) {
+                return null;
+            }
+            return new User(
+                    rs.getLong("id"),
+                    rs.getString("username"),
+                    rs.getString("email"),
+                    rs.getString("password")
+            );
         } catch (SQLException e) {
             throw new RuntimeException("Error finding user", e);
         }
@@ -39,6 +44,7 @@ public class MySQLUsersDao implements Users{
 
     @Override
     public Long insert(User user) {
+        String query = "INSERT INTO users(username, email, password) VALUES (?,?,?)";
         return null;
     }
 }
