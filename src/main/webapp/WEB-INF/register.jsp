@@ -16,7 +16,7 @@
         <input type="text" id="username" name="username"><br>
         <label for="password">Password: </label>
         <input type="password" id="password" name="password"><br>
-        <label for="confirm-password">Password: </label>
+        <label for="confirm-password">Confirm-Password: </label>
         <input type="password" id="confirm-password" name="confirm-password"><br>
         <label for="email">Email: </label>
         <input type="text" id="email" name="email"><br>
