@@ -11,13 +11,13 @@
     <title>Register Page</title>
 
     <h1>Register Here</h1>
-    <form action="POST" method="/register">
+    <form action="/register" method="POST">
         <label for="username">Username: </label>
         <input type="text" id="username" name="username"><br>
         <label for="password">Password: </label>
         <input type="password" id="password" name="password"><br>
-        <label for="confirm-password">Confirm-Password: </label>
-        <input type="password" id="confirm-password" name="confirm-password"><br>
+        <label for="confirm_password">Confirm Password: </label>
+        <input type="password" id="confirm_password" name="confirm_password"><br>
         <label for="email">Email: </label>
         <input type="text" id="email" name="email"><br>
         <button>Submit</button>
